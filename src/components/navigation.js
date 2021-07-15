@@ -2,7 +2,7 @@ import React from "react"
 import {Link} from "gatsby"
 import ThemeChanger from "../components/themeChanger"
 
-export default (props) => (
+
  
   
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,4 +28,4 @@ export default (props) => (
   </div>
 </nav>
   
-)
+
