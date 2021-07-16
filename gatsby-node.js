@@ -28,12 +28,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  const posts = results.data.allMarkdownRemark.edges
+  posts.forEach(({ node }, index) => {
+ 
     createPage({
       path: node.frontmatter.path,
       component: blogPostTemplate,
       context: {}, // additional data can be passed via context
+      prev: index === 0 ? null : posts[index - 1].node,
+      next: index === (posts.length -1) ? null: posts[index + 1].node
     })
   })
 }
